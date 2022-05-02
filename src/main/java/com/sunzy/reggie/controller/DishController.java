@@ -55,7 +55,7 @@ public class DishController {
         log.info(dishDto.toString());
         dishService.saveWithFlavor(dishDto);
         // 删除菜品的缓存数据
-        Set keys = redisTemplate.keys("*dish_*");
+        Set keys = redisTemplate.keys("dish_*");
         redisTemplate.delete(keys);
         return R.success("添加成功！");
     }
